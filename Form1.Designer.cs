@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            intATextBox = new TextBox();
+            intBTextBox = new TextBox();
             resultTextBox = new TextBox();
             calcButton = new Button();
             label1 = new Label();
@@ -37,19 +37,19 @@
             label3 = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // intATextBox
             // 
-            textBox1.Location = new Point(191, 120);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
+            intATextBox.Location = new Point(191, 120);
+            intATextBox.Name = "intATextBox";
+            intATextBox.Size = new Size(100, 23);
+            intATextBox.TabIndex = 0;
             // 
-            // textBox2
+            // intBTextBox
             // 
-            textBox2.Location = new Point(496, 120);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
+            intBTextBox.Location = new Point(496, 120);
+            intBTextBox.Name = "intBTextBox";
+            intBTextBox.Size = new Size(100, 23);
+            intBTextBox.TabIndex = 1;
             // 
             // resultTextBox
             // 
@@ -57,6 +57,7 @@
             resultTextBox.Name = "resultTextBox";
             resultTextBox.Size = new Size(405, 23);
             resultTextBox.TabIndex = 2;
+            resultTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // calcButton
             // 
@@ -105,8 +106,8 @@
             Controls.Add(label1);
             Controls.Add(calcButton);
             Controls.Add(resultTextBox);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(intBTextBox);
+            Controls.Add(intATextBox);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -115,8 +116,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox intATextBox;
+        private TextBox intBTextBox;
         private TextBox resultTextBox;
         private Button calcButton;
         private Label label1;
