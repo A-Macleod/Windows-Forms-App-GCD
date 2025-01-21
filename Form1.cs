@@ -26,24 +26,40 @@ namespace GCD
                 // Perform addition if both inputs are valid
                 result = A + B;
                 resultTextBox.Text = result.ToString();
-
             }
             else
             {
                 // Display error message if the inputs are not a valid number
                 string err = ("Please enter valid numbers in both text boxes.");
                 resultTextBox.Text = err;
-
             }
 
-
-
-
-
             //}   // EO While
+
         }   // EO calcButton_click
-    
 
 
-    }   // EO Class
+        public int GCD(int A, int B)
+        {
+
+            while (A != B)
+            {
+                if (A > B)
+                {
+                    A = A - B;
+                }
+                else
+                {
+                    B = B - A;
+                {
+
+                return A;
+
+            }   // EO While
+        }   // EO GCD
+
+
+
+
+            }   // EO Class
 }   // EO namespace
