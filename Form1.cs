@@ -1,3 +1,6 @@
+using System.CodeDom;
+using System.Security.Cryptography.X509Certificates;
+
 namespace GCD
 {
     public partial class Form1 : Form
@@ -7,59 +10,49 @@ namespace GCD
             InitializeComponent();
         }
 
-        private void calcButton_Click(object sender, EventArgs e)
+        // Method to find the GCD of intA & intB and output Result to textBox
+        private void FindGCD()
         {
-
-            //while (!string.IsNullOrWhiteSpace(intABox.Text) && !string.IsNullOrWhiteSpace(intBBox.Text))
-            //{
-
             int A;
             int B;
-            int result;
+            int Result;
 
-            // Try to parse the text to an integer
-            bool isNum1Valid = int.TryParse(intATextBox.Text, out A);
-            bool isNum2Valid = int.TryParse(intBTextBox.Text, out B);
+            // Try to parse the Text into an Integer
+            bool isNumber1Valid = int.TryParse(intATextBox.Text, out A);
+            bool isNumber2Valid = int.TryParse(intBTextBox.Text, out B);
 
-            if (isNum1Valid && isNum2Valid)
-            {
-                // Perform addition if both inputs are valid
-                result = A + B;
-                resultTextBox.Text = result.ToString();
-            }
-            else
-            {
-                // Display error message if the inputs are not a valid number
-                string err = ("Please enter valid numbers in both text boxes.");
+            // If both numbers are valid
+            if (isNumber1Valid && isNumber2Valid) {
+
+                // GCD Algorythm
+                while (A != B) {
+                    if (A > B) {
+                        A = A - B;
+                    } else {
+                        B = B - A;
+                    }
+                    Result = A;
+                    resultTextBox.Text = Result.ToString();
+                }
+
+            } else {
+
+                // Display error if there is no valid numbers in either text boxes
+                string err = ("Please enter valid numbers in both text boxes");
                 resultTextBox.Text = err;
             }
 
-            //}   // EO While
 
-        }   // EO calcButton_click
+        }
 
 
-        public int GCD(int A, int B)
+        private void calcButton_Click(object sender, EventArgs e)
         {
 
-            while (A != B)
-            {
-                if (A > B)
-                {
-                    A = A - B;
-                }
-                else
-                {
-                    B = B - A;
-                {
+            FindGCD();
 
-                return A;
+        } 
 
-            }   // EO While
-        }   // EO GCD
-
-
-
-
-            }   // EO Class
+           
+    }   // EO Class
 }   // EO namespace
