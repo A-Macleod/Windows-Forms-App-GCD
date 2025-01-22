@@ -43,6 +43,7 @@
             intATextBox.Name = "intATextBox";
             intATextBox.Size = new Size(100, 23);
             intATextBox.TabIndex = 0;
+            intATextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // intBTextBox
             // 
@@ -50,6 +51,7 @@
             intBTextBox.Name = "intBTextBox";
             intBTextBox.Size = new Size(100, 23);
             intBTextBox.TabIndex = 1;
+            intBTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // resultTextBox
             // 
@@ -108,8 +110,9 @@
             Controls.Add(resultTextBox);
             Controls.Add(intBTextBox);
             Controls.Add(intATextBox);
+            MdiChildrenMinimizedAnchorBottom = false;
             Name = "Form1";
-            Text = "Greatest Common Denominator Calculator";
+            Text = "Greatest Common Divisor Calculator";
             ResumeLayout(false);
             PerformLayout();
         }

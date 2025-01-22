@@ -10,38 +10,51 @@ namespace GCD
             InitializeComponent();
         }
 
-        // Method to find the GCD of intA & intB and output Result to textBox
+        // Method to find the GCD of intA & intB and output Result to textBox with basic error reporting
         private void FindGCD()
         {
             int A;
             int B;
             int Result;
 
+            // Numbers have to be Positive or program crashes
             // Try to parse the Text from the textBoxes into an Integer
             bool isNumber1Valid = int.TryParse(intATextBox.Text, out A);
             bool isNumber2Valid = int.TryParse(intBTextBox.Text, out B);
 
-            // If both numbers are valid and True do this
-            if (isNumber1Valid && isNumber2Valid) {
+            // If both intA & intB are Numbers, therefore True, do this else display error message
+            if (isNumber1Valid && isNumber2Valid == true) {
 
-                // GCD Algorithm
-                while (A != B) {
-                    if (A > B) {
-                        A = A - B;
-                    } else {
-                        B = B - A;
+                // If A & B are Positive Numbers do this, else display error message
+                if (A > 0 && B > 0) {
+
+                    // GCD Algorithm
+                    while (A != B) {
+                        if (A > B) {
+                            A = A - B;
+                        } else {
+                            B = B - A;
+                        }
+                        Result = A;
+                        string ResultToString = Result.ToString();
+
+                        // Output GCD Result textBox
+                        resultTextBox.ForeColor = Color.Black;
+                        resultTextBox.Text = $"The GCD of {intATextBox.Text} and {intBTextBox.Text} is {ResultToString}";
                     }
-                    Result = A;
-                    string ResultToString = Result.ToString();
 
-                    // Output to the Result textBox
-                    resultTextBox.Text = $"The GCD of {intATextBox.Text} and {intBTextBox.Text} is {ResultToString}";
+                } else {
+
+                    // Display error in Red if there in a Negative Number entered into a text box
+                    string err = ("Please enter Positive numbers in both text boxes");
+                    resultTextBox.ForeColor = Color.Red;
+                    resultTextBox.Text = err;
                 }
-
             } else {
 
-                // Display error if there is not a valid number in both text boxes
-                string err = ("Please enter valid numbers in both text boxes");
+                // Display error in Red if there is not a Valid Number in both text boxes
+                string err = ("Please enter Numbers in both text boxes");
+                resultTextBox.ForeColor = Color.Red;
                 resultTextBox.Text = err;
             }
         }
